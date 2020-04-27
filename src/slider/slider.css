@@ -2,11 +2,20 @@
   transition: all 0.2s linear;
   -webkit-transition: all 0.2s linear;
 }
+.slider.vertical {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+.slider .currentValue {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
 .slider input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 5px;
+  height: 2px;
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
@@ -16,16 +25,15 @@
   opacity: 1;
 }
 .slider input[type="range"]:hover::-webkit-slider-thumb {
-  width: 20px;
-  height: 20px;
+  background: #69c0ff;
 }
 .slider input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: #4CAF50;
+  width: 25px;
+  height: 10px;
+  border-radius: 6px;
+  background: dodgerblue;
   cursor: pointer;
   transition: all 0.2s linear;
   -webkit-transition: all 0.2s linear;

@@ -11,9 +11,9 @@ class Slider extends Component {
 
 
     render() {
-        const { value, min, max, step } = this.props;
+        const { value, min, max, step, orientation } = this.props;
         return (
-            <div className="slider">
+            <div className={`slider ${orientation === 'v' ? 'vertical' : ''}`}>
                 <div className="currentValue">
                     Selected Value: {value}
                 </div>
