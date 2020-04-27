@@ -1,8 +1,10 @@
 .allSliders {
-    display              : grid;
-    width                : 100%;
-    grid-template-columns: repeat(2, 1fr);
-    align-items          : center;
+    width                   : 100%;
+    // display              : grid;
+    // grid-template-columns: repeat(2, 1fr);
+    display                 : flex;
+    align-items             : center;
+    flex-wrap               : wrap;
 
     .sliderContainer {
         height     : 50vh;
@@ -12,6 +14,47 @@
         color      : #fff;
         padding    : 3rem;
         position   : relative;
+        flex-basis : 50%;
+
+
+        &.customSliderContainer {
+
+            display: block;
+
+            .allCustomInputs {
+                display    : flex;
+                margin     : 5rem 0 1rem 0;
+                margin-left: 1rem;
+
+                .inputContainer {
+                    line-height : 1.5;
+                    margin-right: 1rem;
+
+                    &:last-child {
+                        margin: 0px;
+                    }
+
+                    .inputLabel {
+                        font-weight: 300;
+                        font-size  : 16px;
+                    }
+
+                    input {
+                        margin-top   : 5px;
+                        background   : #757575;
+                        box-shadow   : none;
+                        border-radius: 8px;
+                        border       : none;
+                        padding      : 12px;
+                        font-size    : 15px;
+                        color        : #ffffff;
+                        width        : 75px;
+                        font-family  : inherit;
+                        outline      : none;
+                    }
+                }
+            }
+        }
 
         &:first-child {
             background: #002766;
@@ -22,10 +65,11 @@
         }
 
         &:nth-child(3) {
-            background: #985914;
+            background: #71252c;
         }
 
         &:last-child {
+            flex-basis: 100%;
             background: #363537;
         }
 
@@ -42,7 +86,7 @@
             max-width: 600px;
             padding  : 1rem;
 
-            &.vertical{
+            &.vertical {
                 max-width: 290px;
             }
         }
@@ -51,7 +95,11 @@
 
 @media screen and (max-width: 600px) {
     .allSliders {
-        grid-template-columns: none;
-        grid-template-rows   : repeat(2, 1fr);
+
+        // grid-template-columns: none;
+        // grid-template-rows   : repeat(2, 1fr);
+        .sliderContainer {
+            flex-basis: 100%;
+        }
     }
 }

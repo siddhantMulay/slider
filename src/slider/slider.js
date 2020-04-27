@@ -8,8 +8,7 @@ class Slider extends Component {
         const { onChange } = this.props;
         onChange(event.target.value)
     }
-
-
+    
     render() {
         const { value, min, max, step, orientation } = this.props;
         return (
@@ -24,6 +23,7 @@ class Slider extends Component {
                     value={value}
                     step={step}
                 />
+                <output className="bubble"></output>
             </div>
         )
     }
