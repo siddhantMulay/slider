@@ -27,26 +27,35 @@ class Landing extends Component {
                 <div className="sliderContainer" key={`slider${index}`}>
                     <div className="typeOfSlider">{item.type}</div>
                     <Slider
-                        orientation={item.orientation}
-                        onChange={(val) => this.sliderOnChange(item.id, val)}
+                        dual={item.dual}
+                        type={item.type}
+                        onChange={(val, valType) => this.sliderOnChange(item.id, val, valType)}
                         value={item.value}
                         min={5}
                         max={100}
                         step={2}
+                        lowerVal={item.lowerVal}
+                        upperVal={item.upperVal}
                     />
                 </div>)
         })
         return retArr;
     }
 
-    sliderOnChange = (id, value) => {
+    sliderOnChange = (id, value, valType) => {
         let sData = [...this.state.sliderData];
 
         if (id !== 0) {
 
             sData.map((item) => {
-                if (item.id === id) {
-                    item.value = parseInt(value);
+
+                if (valType) {
+                    item[valType] = value
+                }
+                else {
+                    if (item.id === id) {
+                        item.value = parseInt(value);
+                    }
                 }
             })
 
@@ -104,7 +113,6 @@ class Landing extends Component {
                         </div>
 
                         <Slider
-                            orientation="h"
                             onChange={(val) => this.sliderOnChange(0, val)}
                             value={value}
                             min={min}

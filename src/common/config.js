@@ -2,12 +2,14 @@
 const sliderData = [{
     id: 1,
     type: 'Basic',
-    orientation: 'h',
+    dual: false,
     value: 20
 }, {
     id: 2,
-    type: 'Basic - Vertical',
-    orientation: 'v',
+    type: 'Range',
+    dual: true,
+    lowerVal: 2,
+    upperVal: 25,
     value: 25
 }]
 
