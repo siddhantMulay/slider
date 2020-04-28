@@ -14,7 +14,11 @@ class Landing extends Component {
                 value: 15,
                 min: 5,
                 max: 100,
-                step: 1
+                type: "Basic",
+                step: 1,
+                dual: false,
+                lowerVal: 2,
+                upperVal: 50
             }
         }
     }
@@ -64,24 +68,35 @@ class Landing extends Component {
             })
         }
         else {
-            this.setState({
-                customSliderData: Object.assign({}, this.state.customSliderData, {
-                    value: value
+            if (valType) {
+                this.setState({
+                    customSliderData: Object.assign({}, this.state.customSliderData, {
+                        type: 'Range',
+                        [valType]: value
+                    })
                 })
-            })
+
+            }
+            else {
+                this.setState({
+                    customSliderData: Object.assign({}, this.state.customSliderData, {
+                        value: value
+                    })
+                })
+            }
         }
     }
 
-    inputOnChange = (type, event) => {
+    inputOnChange = (key, event) => {
         this.setState({
             customSliderData: Object.assign({}, this.state.customSliderData, {
-                [type]: parseInt(event.target.value)
+                [key]: key === 'dual' ? event.target.checked : parseInt(event.target.value)
             })
         })
     }
 
     render() {
-        const { value, min, max, step } = this.state.customSliderData;
+        const { value, min, max, step, dual, lowerVal, upperVal } = this.state.customSliderData;
         return (
             <div>
                 <div className="allSliders">
@@ -110,14 +125,30 @@ class Landing extends Component {
                             </div>
                                 <input type="number" value={max} onChange={(event) => this.inputOnChange("max", event)} />
                             </div>
+
+                            <div className="inputContainer">
+                                <div className="inputLabel">
+                                    Range
+                                </div>
+                                <label className="switch">
+                                    <input type="checkbox" checked={dual} onChange={(event) => this.inputOnChange("dual", event)} />
+                                    <span className="inputSlider"></span>
+                                </label>
+                            </div>
+
+
                         </div>
 
                         <Slider
-                            onChange={(val) => this.sliderOnChange(0, val)}
+                            onChange={(val, valType) => this.sliderOnChange(0, val, valType)}
+                            type={dual ? "Range" : ""}
                             value={value}
+                            dual={dual}
                             min={min}
                             max={max}
                             step={step}
+                            lowerVal={lowerVal}
+                            upperVal={upperVal}
                         />
                     </div>
                 </div>

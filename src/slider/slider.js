@@ -24,7 +24,7 @@ class Slider extends Component {
 
                 if (lowerVal > upperVal - diff) {
                     uVal = lowerVal + diff;
-                    if (upperVal == upperSlider.max) {
+                    if (upperVal === upperSlider.max) {
                         lVal = parseInt(upperSlider.max) - diff;
                     }
                 }
@@ -43,7 +43,7 @@ class Slider extends Component {
                 if (upperVal < lowerVal + diff) {
                     lVal = upperVal - diff;
 
-                    if (lowerVal == lowerSlider.min) {
+                    if (lowerVal === lowerSlider.min) {
                         uVal = diff;
                     }
                 }
@@ -58,9 +58,7 @@ class Slider extends Component {
         }
     }
 
-
     render() {
-
 
         const { value, min, max, step, type, dual, lowerVal, upperVal } = this.props;
         return (

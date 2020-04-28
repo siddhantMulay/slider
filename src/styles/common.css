@@ -6,3 +6,48 @@ body {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.switch input:checked + .inputSlider {
+  background-color: #2196F3;
+}
+.switch input:checked + .inputSlider::before {
+  transform: translateX(20px);
+  -webkit-transform: translateX(20px);
+}
+.switch input:focus + .inputSlider {
+  box-shadow: 0 0 1px #2196F3;
+}
+.switch .inputSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.switch .inputSlider::before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 8px;
+  bottom: 6px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
