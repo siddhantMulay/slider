@@ -126,16 +126,6 @@ class Landing extends Component {
                                 <input type="number" value={max} onChange={(event) => this.inputOnChange("max", event)} />
                             </div>
 
-                            <div className="inputContainer">
-                                <div className="inputLabel">
-                                    Range
-                                </div>
-                                <label className="switch">
-                                    <input type="checkbox" checked={dual} onChange={(event) => this.inputOnChange("dual", event)} />
-                                    <span className="inputSlider"></span>
-                                </label>
-                            </div>
-
 
                         </div>
 
